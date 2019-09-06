@@ -22,47 +22,48 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
     .then((response) => {
 
         let articles = response.data.articles;
-        console.log(response.data);
         console.log(response.data.articles)
+
         let mainCardContainer = document.querySelector('.cards-container')
         console.log(articles);
 
-        if (articles.length >= 0) {
-            for (let i = 0; i < articles.length; i++) {
+        //created a for loop to loop through the object and 
+        for (let key in articles) {
 
-                let cardComponent = articleCardCreator(articles[i]);
+            for (let article of articles[key]) {
+                let cardComponent = articleCardCreator(article);
                 mainCardContainer.appendChild(cardComponent);
-
-                console.log(cardComponent);
             }
 
         }
+
     })
 
 
 const articleCardCreator = function (myArticle) {
-//created a new component for each article on the list
+    //created a new component for each article on the list
     const cardClass = document.createElement('div')
-    cardClass.classList.add('.card')
+    cardClass.classList.add('card')
 
     const headlineClass = document.createElement('div')
-    headlineClass.classList.add('.headline')
+    headlineClass.classList.add('headline')
     headlineClass.textContent = myArticle.headline
 
     const authorClass = document.createElement('div')
-    authorClass.classList.add('.author')
+    authorClass.classList.add('author')
 
     const imageContainer = document.createElement('div')
-    imageContainer.classList.add('.img-container')
+    imageContainer.classList.add('img-container')
 
     const image = document.createElement('img')
-    image.src = myArticle.assets / max.jpg
+    image.src = myArticle.authorPhoto
 
     const span = document.createElement('span')
     span.textContent = `By ${myArticle.authorName}`
 
     imageContainer.appendChild(image);
     authorClass.appendChild(imageContainer);
+    authorClass.appendChild(span);
     cardClass.appendChild(headlineClass);
     cardClass.appendChild(authorClass);
 
