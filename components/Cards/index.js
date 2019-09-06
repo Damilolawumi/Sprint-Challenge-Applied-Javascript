@@ -27,7 +27,8 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
         let mainCardContainer = document.querySelector('.cards-container')
         console.log(articles);
 
-        //created a for loop to loop through the object and 
+        //used the for/in loop to loop through the properties of the object
+        //used the for/of to loop through the values of the iterable object
         for (let key in articles) {
 
             for (let article of articles[key]) {
