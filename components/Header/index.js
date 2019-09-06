@@ -9,6 +9,7 @@
 //  </div >
 // And add it to the DOM in the .headerContainer component
 
+
 function Header() {
     const headerDiv = document.createElement('div');
     headerDiv.classList.add('header');
@@ -35,4 +36,4 @@ let newHeader = Header(); //we create a new header with the headerContainer
 
 let headerContainer = document.querySelector('.header-container');
 
-headerContainer.appendChild(newHeader); //we add it to the ".headerContainer"
+headerContainer.appendChild(newHeader); //we add it to the DOM in the".headerContainer"
